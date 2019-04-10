@@ -14,3 +14,5 @@ module App
     config.load_defaults 5.2
   end
 end
+
+
