@@ -1,10 +1,12 @@
 vi:
+  hello: "Xin chao"
   static_pages:
     home:
       title: "Trang chủ"
-      content_html: '</p>Đây là trang chủ của
+      content_html: '<p>Đây là trang chủ của
         <a href="https://www.railstutorial.org/">Hướng dẫn về Ruby on Rails</a>.
         </p>'
+      button_signup: "Đăng ký "
     help:
       title: "Trợ giúp"
       content_html: '</p>Nhận trợ giúp về Hướng dẫn Ruby on Rails tại
