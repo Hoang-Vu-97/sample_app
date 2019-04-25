@@ -36,22 +36,34 @@ en:
       link: "http://news.railstutorial.org/"
     login:
       title: "Log in"
+    lang:
+      en: "English"
+      vi: "Vietnamese"
     users:
       new:
         title: "Sign up"
-        sign_up: "Sign up"
+        sign_up: "Sign up now!"
         content_html: '<p>This will be a signup page for new users.</p>'
         log_in: "Log in"
         log_out: "Log out"
         profile: "Profile"
         setting: "Settings"
-        user: "Users"
+        user: "New Users?"
         edit: "Edit user"
         create_account: "Create my account"
         save_edit: "Save changes"
         update_profile: "Update your profile"
         user_index: "All users"
-      error_show: "User not found!"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        confirmation: "Confirmation"
+        create: "Create my account"
+        error_show: "User not found!"
+      combination : "Invalid email/password combination"
+      current:
+        user: "User"
+        account: "Account"
   base_title: "Ruby on Rails Tutorial Sample App"
   book_title: "Ruby on Rails Tutorial"
   rails_help: "Rails Tutorial help section"

@@ -36,22 +36,34 @@ vi:
       link: "http://news.railstutorial.org/"
     login:
       title: "Đăng nhập"
+    lang:
+      en: "Tiếng Anh"
+      vi: "Tiếng Việt"
     users:
       new:
         title: "Đăng ký"
-        sign_up: "Đăng ký"
+        sign_up: "Đăng ký ngay!"
         content_html: '<p>Đây là trang đăng ký dành cho người dùng mới.</p>'
         log_in: "Đăng nhập"
         log_out: "Đăng xuất"
         profile: "Profile"
         setting: "Cài đặt"
-        user: "Users"
+        user: "Người dùng mới?"
         edit: "Chỉnh sửa user"
         create_account: "Tạo tài khoản"
         save_edit: "Lưu thay đổi"
         update_profile: "Update profile"
         user_index: "Tất cả người sử dụng"
-      error_show: "User not found!"
+        name: "Tên người dùng"
+        email: "Email"
+        password: "Mật khẩu"
+        confirmation: "Xác nhận lại mật khẩu"
+        create: "Tạo tài khoản"
+        error_show: "User not found!"
+      combination : "Email hoặc mật khẩu không đúng"
+      current:
+        user: "Người dùng"
+        account : "Tài khoản"
   base_title: "Ruby on Rails Tutorial App mẫu"
   book_title: "Ruby on Rails Tutorial"
   rails_help: "Phaanf trợ giúp Rails Tutorial"
