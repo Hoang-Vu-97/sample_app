@@ -1,10 +1,6 @@
 user:
-  name:
-    max_legth : 50
-  email:
-    max_legth : 255
-  password:
-    min_legth: 6
-user_helper:
-  size_gravater: 80
-gravatar_size: 80
+  length_of_name: 50
+  length_of_email: 255
+  length_of_password: 6
+  gravatar_size: 80
+  remember_user: 1
