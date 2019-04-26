@@ -66,6 +66,11 @@ en:
       current:
         user: "User"
         account: "Account"
+      delete:
+        delete_user: "delete"
+        confirm: "You sure?"
+        deleted: "User deleted"
+      index: "All users"
   base_title: "Ruby on Rails Tutorial Sample App"
   book_title: "Ruby on Rails Tutorial"
   rails_help: "Rails Tutorial help section"
