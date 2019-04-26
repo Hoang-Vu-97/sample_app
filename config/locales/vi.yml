@@ -66,6 +66,11 @@ vi:
       current:
         user: "Người dùng"
         account : "Tài khoản"
+      delete:
+        delete_user: "delete"
+        confirm: "You sure?"
+        deleted: "User deleted"
+      index: "All users"
   base_title: "Ruby on Rails Tutorial App mẫu"
   book_title: "Ruby on Rails Tutorial"
   rails_help: "Phaanf trợ giúp Rails Tutorial"

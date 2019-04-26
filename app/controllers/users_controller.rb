@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     flash[:danger] = t("static_pages.users.error_show")
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   private
 
   def user_params

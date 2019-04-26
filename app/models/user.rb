@@ -25,10 +25,10 @@ class User < ApplicationRecord
       end
       BCrypt::Password.create(string, cost: cost)
     end
-  end
 
-  def self.new_token
-    SecureRandom.urlsafe_base64
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
 
   def remember
@@ -45,3 +45,4 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 end
+
