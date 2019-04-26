@@ -36,6 +36,8 @@ vi:
       link: "http://news.railstutorial.org/"
     login:
       title: "Đăng nhập"
+      error_message: "Invalid email/password combination"
+      login_remember: "Nhớ đăng nhập"
     lang:
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
