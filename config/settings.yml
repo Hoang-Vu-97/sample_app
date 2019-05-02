@@ -14,3 +14,4 @@ micropost:
 image_size: 5
 height: 400
 width: 400
+image_follow_user: 30

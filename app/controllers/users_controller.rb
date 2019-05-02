@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      flash[:success] = t("static_pages.home.welcome")
+      flash[:success] = t "static_pages.home.welcome"
       redirect_to @user
     else
       render :new
@@ -49,6 +49,20 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @title = t "static_pages.users.title_following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render :show_follow
+  end
+
+  def followers
+    @title = t "static_pages.users.title_follower"
+    @user  = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render :show_follow
+  end
+
   private
 
   def user_params
@@ -63,13 +77,16 @@ class UsersController < ApplicationController
     redirect_to login_url
   end
 
-
   def correct_user
-    redirect_to root_url unless current_user.current_user? @user
+    @user = User.find_by(params[:id])
+    redirect_to root_url unless current_user?(@user)
   end
 
   def admin_user
     redirect_to root_url unless current_user.admin?
   end
 
+  def find_param
+    User.find(params[:id])
+  end
 end

@@ -1,7 +1,15 @@
 class User < ApplicationRecord
-  has_many :microposts, dependent: :destroy
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   attr_accessor :remember_token
+  has_many :microposts, dependent: :destroy
+  has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+  has_many :passive_relationships, class_name:  "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent:   :destroy
+  has_many :following, through: :active_relationships, source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
   validates :name,  presence: true,
                     length: {maximum: Settings.user.length_of_name}
   validates :email, presence: true,
@@ -9,14 +17,15 @@ class User < ApplicationRecord
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
   validates :password, presence: true,
-                       length: {minimum: Settings.user.length_of_password}
+                       length: {minimum: Settings.user.length_of_password},
+                       allow_nil: true
   before_save :downcase_email
   has_secure_password
   paginates_per Settings.user.per_page
 
   default_scope ->{order(created_at: :desc)}
 
- class << self
+  class << self
     def digest string
       if ActiveModel::SecurePassword.min_cost
         BCrypt::Engine::MIN_COST
@@ -46,7 +55,22 @@ class User < ApplicationRecord
   end
 
   def feed
-    scope :feed_micropost, ->{where("user_id = ?", id)}
+    following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+  end
+
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   private
